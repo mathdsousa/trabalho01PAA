@@ -1,8 +1,10 @@
+# Cálculo do logaritmo
 def logaritmo(num):
     if (num >= 0 and num <= 9):
         return 0
     return 1 + logaritmo(num/10)
 
+# Cálculo do exponencial usando divisão e conquista
 def exponencialDC(base, n):
     if n == 1:
         return base
