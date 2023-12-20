@@ -4,32 +4,33 @@
 # Alunos: Matheus dos Santos Sousa
 #         Nathália Brasilino Gimenes
 
-def exponencialDC(base, n):
-    if n == 0:
+# Universidade Federal de São Carlos
+# Disciplina: Projeto e Análise de Algoritmos
+# Turma: D
+# Alunos: Matheus dos Santos Sousa
+#         Nathália Brasilino Gimenes
+
+
+def exponencial(a, n):
+    if (n == 0):
         return 1
-    if n == 1:
-        return base
-    metade = exponencialDC(base, n // 2)
-    parcial = metade * metade
-    if n % 2 == 1:
-        return parcial * base
-    return parcial
-
-def main():
-    # Entrada de valores
-    i = 0
-
-    while(i < 10):
-        entrada = input()
-        base, n = [int(numero) for numero in entrada.split(' ')]
-
-        res = exponencialDC(base, n)
-
-        # Calcular o logaritmo do resultado sem converter para string
-        log = 0 if res == 0 else len(str(res))
-
-        print("{} {}".format(res // 10**(log - 1), log - 1))
+    half = exponencial(a, n//2)
+    res = half * half
+    if(n % 2 == 1):
+        return res * a
+    return res 
     
-    i += 1
-
+def main():
+    
+    entrada = input()
+    aux = entrada.split(' ')
+    base, n = float(aux[0]), int(aux[1])
+    
+    res = str(int(exponencial(base, n)))
+    
+    print(res)
+    
+    print("{} {}".format(int(res[0]), len(res) - 1))
+    
 main()
+    
