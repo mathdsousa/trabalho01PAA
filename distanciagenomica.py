@@ -61,7 +61,7 @@ def contarInversoes(genoma2, n, pesos):
 #EX: genoma 1: caso o gene 3 esteja na posição 1, então na posição 3 da lista de peso, armazenamos o valor 1
 #Esta lista de peso utilizaremos para fazer a comparação entre os genes do genoma 2
 def preencheLista(num, bool):
-    entrada = input()
+    entrada = input().strip()
     lista1 = [int(numero) for numero in entrada.split(' ')]
     if bool:
         lista2 = [0] * num
@@ -77,9 +77,6 @@ def main():
     #entradas dos genomas 1 e 2, e criação de uma lista de pesos
     genoma1, pesos = preencheLista(num, True)
     genoma2 = preencheLista(num, False)
-    print(genoma1)
-    print(pesos)
-    print(genoma2)
 
     num_inv = contarInversoes(genoma2, num, pesos)
     print(num_inv)
