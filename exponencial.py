@@ -4,11 +4,6 @@
 # Alunos: Matheus dos Santos Sousa
 #         Nathália Brasilino Gimenes
 
-def logaritmo(num):
-    if (num >= 0 and num <= 9):
-        return 0
-    return 1 + logaritmo(num/10)
-
 def exponencialDC(base, n):
     if n == 0:
         return 1
@@ -23,9 +18,8 @@ def main():
     entrada = input()
     base, n = [int(numero) for numero in entrada.split(' ')]
 
-    res = exponencialDC(base, n)
-    log = logaritmo(res)
+    transforma = str(exponencialDC(base,n))
 
-    print("{} {}".format(res//10**log, log))
+    print("{} {}".format(int(transforma[0]), len(transforma) - 1))
 
 main()
