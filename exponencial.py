@@ -7,19 +7,29 @@
 def exponencialDC(base, n):
     if n == 0:
         return 1
-    metade = exponencialDC(base, n//2)
+    if n == 1:
+        return base
+    metade = exponencialDC(base, n // 2)
     parcial = metade * metade
-    if(n % 2 == 1):
+    if n % 2 == 1:
         return parcial * base
     return parcial
 
 def main():
     # Entrada de valores
-    entrada = input()
-    base, n = [int(numero) for numero in entrada.split(' ')]
+    i = 0
 
-    transforma = str(exponencialDC(base,n))
+    while(i < 10):
+        entrada = input()
+        base, n = [int(numero) for numero in entrada.split(' ')]
 
-    print("{} {}".format(int(transforma[0]), len(transforma) - 1))
+        res = exponencialDC(base, n)
+
+        # Calcular o logaritmo do resultado sem converter para string
+        log = 0 if res == 0 else len(str(res))
+
+        print("{} {}".format(res // 10**(log - 1), log - 1))
+    
+    i += 1
 
 main()
