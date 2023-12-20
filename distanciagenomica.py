@@ -1,3 +1,9 @@
+# Universidade Federal de São Carlos
+# Disciplina: Projeto e Análise de Algoritmos
+# Turma: D
+# Alunos: Matheus dos Santos Sousa
+#         Nathália Brasilino Gimenes
+
 def intercalaContando(genoma2, inicio, metade, fim, pesos):
     
     num_inv = 0
@@ -64,10 +70,13 @@ def main():
 
     genoma1, pesos = preencheLista(num, True)
     genoma2 = preencheLista(num, False)
-    print(genoma1)
-    print(pesos)
-    print(genoma2)
+    #print(genoma1)
+    #print(pesos)
+    #print(genoma2)
 
     num_inv = contarInversoes(genoma2, num, pesos)
+    
+    #print(genoma2)
+    print(num_inv)
 
 main()
