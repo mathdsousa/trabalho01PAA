@@ -4,6 +4,7 @@
 # Alunos: Matheus dos Santos Sousa
 #         Nathália Brasilino Gimenes
 
+#Conquista, juntamente com a contagem das inversões
 def intercalaContando(genoma2, inicio, metade, fim, pesos):
     
     num_inv = 0
@@ -14,6 +15,7 @@ def intercalaContando(genoma2, inicio, metade, fim, pesos):
     w = [None] * tam
 
     while(i < metade and j < fim):
+        #Aqui fazemos a comparação utilizando a lista de pesos
         if(pesos[genoma2[i]] <= pesos[genoma2[j]]):
             w[k] = genoma2[i]
             k += 1
@@ -41,6 +43,7 @@ def intercalaContando(genoma2, inicio, metade, fim, pesos):
     
     return num_inv
 
+#Processo de divisão do problema e soma das inversões
 def contarInversoesR(genoma2, inicio, fim, pesos):
     numInversoes = 0
     if(fim - inicio > 1):
@@ -53,6 +56,10 @@ def contarInversoesR(genoma2, inicio, fim, pesos):
 def contarInversoes(genoma2, n, pesos):
     return contarInversoesR(genoma2, 0, n, pesos)
 
+#Para entrada do genoma 1, criamos em paralelo uma lista de pesos, na qual armazena-se em cada índice
+#a posição do valor do índice em relação ao genoma 1
+#EX: genoma 1: caso o gene 3 esteja na posição 1, então na posição 3 da lista de peso, armazenamos o valor 1
+#Esta lista de peso utilizaremos para fazer a comparação entre os genes do genoma 2
 def preencheLista(num, bool):
     entrada = input()
     lista1 = [int(numero) for numero in entrada.split(' ')]
@@ -67,16 +74,14 @@ def preencheLista(num, bool):
 
 def main():
     num = int(input())
-
+    #entradas dos genomas 1 e 2, e criação de uma lista de pesos
     genoma1, pesos = preencheLista(num, True)
     genoma2 = preencheLista(num, False)
-    #print(genoma1)
-    #print(pesos)
-    #print(genoma2)
+    print(genoma1)
+    print(pesos)
+    print(genoma2)
 
     num_inv = contarInversoes(genoma2, num, pesos)
-    
-    #print(genoma2)
     print(num_inv)
 
 main()
